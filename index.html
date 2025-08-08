@@ -1,153 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rock Paper Scissors Game</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: 'Poppins', sans-serif;
-    background: #0f2027;
-    overflow: hidden;
-  }
-  #particles-js {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-  }
-  .floating-circle {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.3;
-    animation: float 10s ease-in-out infinite alternate;
-  }
-  .floating-circle:nth-child(1) {
-    background: #ff00c8;
-    width: 400px; height: 400px;
-    top: 10%; left: 10%;
-  }
-  .floating-circle:nth-child(2) {
-    background: #00ffe7;
-    width: 300px; height: 300px;
-    bottom: 10%; right: 10%;
-    animation-delay: 3s;
-  }
-  @keyframes float {
-    0% { transform: translateY(0px); }
-    100% { transform: translateY(-30px); }
-  }
-  .content {
-    position: relative;
-    z-index: 2;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: fadeIn 2s ease forwards;
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-  }
-  .card {
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 20px;
-    padding: 50px 40px;
-    max-width: 500px;
-    text-align: center;
-    color: #fff;
-    box-shadow: 0 0 40px rgba(0,255,231,0.2);
-    animation: pulse 6s ease-in-out infinite;
-  }
-  @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.02); }
-    100% { transform: scale(1); }
-  }
-  h1 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 3em;
-    margin-bottom: 0.4em;
-    background: linear-gradient(90deg, #00ffe7);
-    background-size: 300% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: gradientText 6s ease infinite;
-  }
-  @keyframes gradientText {
-    0% {background-position:0%;}
-    50% {background-position:100%;}
-    100% {background-position:0%;}
-  }
-  p {
-    font-size: 1.1em;
-    color: rgba(255,255,255,0.85);
-    margin-bottom: 2em;
-    line-height: 1.6;
-    animation: floatText 4s ease-in-out infinite alternate;
-  }
-  @keyframes floatText {
-    0% { transform: translateY(0px); }
-    100% { transform: translateY(-5px); }
-  }
-  .btn {
-    display: inline-block;
-    padding: 14px 30px;
-    font-size: 1.1em;
-    font-weight: 500;
-    color: #00ffe7;
-    border: 2px solid #00ffe7;
-    border-radius: 50px;
-    background: rgba(0,255,231,0.1);
-    box-shadow: 0 0 20px #00ffe7;
-    text-decoration: none;
-    transition: all 0.4s ease;
-  }
-  .btn:hover {
-    background: #00ffe7;
-    color: #000;
-    box-shadow: 0 0 30px #00ffe7, 0 0 60px #00ffe7;
-  }
-  .footer {
-    margin-top: 20px;
-    font-size: 0.85em;
-    color: rgba(255,255,255,0.6);
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background: #0f2027;
+      overflow: hidden;
+    }
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    .floating-circle {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.3;
+      animation: float 10s ease-in-out infinite alternate;
+    }
+    .floating-circle:nth-child(1) {
+      background: #ff00c8;
+      width: 400px; height: 400px;
+      top: 10%; left: 10%;
+    }
+    .floating-circle:nth-child(2) {
+      background: #00ffe7;
+      width: 300px; height: 300px;
+      bottom: 10%; right: 10%;
+      animation-delay: 3s;
+    }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-30px); }
+    }
+    .content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 2s ease forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 50px 40px;
+      max-width: 500px;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 0 40px rgba(0,255,231,0.2);
+      animation: pulse 6s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+      100% { transform: scale(1); }
+    }
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3em;
+      margin-bottom: 0.4em;
+      background: linear-gradient(90deg, #00ffe7, #ff00c8);
+      background-size: 300% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientText 6s ease infinite;
+    }
+    @keyframes gradientText {
+      0% {background-position:0%;}
+      50% {background-position:100%;}
+      100% {background-position:0%;}
+    }
+    .scoreboard {
+      font-size: 1.2em;
+      margin: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 10px 20px;
+      background: rgba(0,255,231,0.1);
+      border-radius: 10px;
+      border: 1px solid #00ffe7;
+    }
+    .score {
+      flex: 1;
+    }
+    .buttons {
+      margin: 20px 0;
+    }
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 14px 28px;
+      font-size: 1em;
+      font-weight: 500;
+      color: #00ffe7;
+      border: 2px solid #00ffe7;
+      border-radius: 50px;
+      background: rgba(0,255,231,0.1);
+      box-shadow: 0 0 20px #00ffe7;
+      text-decoration: none;
+      transition: all 0.4s ease;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #00ffe7;
+      color: #000;
+      box-shadow: 0 0 30px #00ffe7, 0 0 60px #00ffe7;
+    }
+    #result {
+      font-size: 1.2em;
+      margin-top: 20px;
+      color: rgba(255,255,255,0.9);
+    }
+  </style>
 </head>
 <body>
   <div id="particles-js"></div>
   <div class="floating-circle"></div>
   <div class="floating-circle"></div>
+
   <div class="content">
     <div class="card">
       <h1>Rock Paper Scissors</h1>
+
+      <div class="scoreboard">
+        <div class="score" id="userScore">You: <span id="player-score">0</span></div>
+        <div class="score" id="computerScore">Computer: <span id="computer-score">0</span></div>
+      </div>
+
+      <div class="buttons">
+        <button class="btn" id="rock">Rock</button>
+        <button class="btn" id="paper">Paper</button>
+        <button class="btn" id="scissors">Scissors</button>
+      </div>
+
+      <p id="result"></p>
     </div>
   </div>
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-<script>
-particlesJS('particles-js',
-{
-  "particles": {
-    "number": {"value": 80,"density": {"enable": true,"value_area": 800}},
-    "color": {"value": "#00ffe7"},
-    "shape": {"type": "circle"},
-    "opacity": {"value": 3,"random": true},
-    "size": {"value": 3,"random": true},
-    "line_linked": {"enable": true,"distance": 150,"color": "#00ffe7","opacity": 1,"width": 1},
-    "move": {"enable": true,"speed": 1.5,"direction": "none","random": false,"straight": false,"out_mode": "out"}
-  }
-});
-</script>
-<script src="script.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS('particles-js', {
+      "particles": {
+        "number": {"value": 80,"density": {"enable": true,"value_area": 800}},
+        "color": {"value": "#00ffe7"},
+        "shape": {"type": "circle"},
+        "opacity": {"value": 3,"random": true},
+        "size": {"value": 3,"random": true},
+        "line_linked": {"enable": true,"distance": 150,"color": "#00ffe7","opacity": 1,"width": 1},
+        "move": {"enable": true,"speed": 1.5,"direction": "none","random": false,"straight": false,"out_mode": "out"}
+      }
+    });
+  </script>
+  <script src ="script.js"></script>
 </body>
 </html>
